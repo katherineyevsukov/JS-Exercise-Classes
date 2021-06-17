@@ -222,7 +222,7 @@ class Airplane {
      this.favSubjects = studAttrs.favSubjects;
    }
    listSubjects(){
-     return `Loving ${this.favSubjects.join()}`
+     return `Loving ${this.favSubjects.join(', ')}!`
    }
    PRAssignment(subject){
      return `${this.name} has submitted a PR for ${subject}`
@@ -232,7 +232,16 @@ class Airplane {
    }
  }
 
+ const spongebob = new Student({
+  name: `Spongebob`,
+  age: 102,
+  location: `Bikini Bottom`,
+  previousBackground: 'Fry Cook',
+  className: `web45`,
+  favSubjects: [`HTML`, `CSS`, `JS`]
+ });
 
+console.log('task 5:', spongebob.listSubjects());
   
   /*
     TASK 6
@@ -247,9 +256,21 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+   constructor(pmAttrs){
+     super(pmAttrs);
+     this.gradClassName = pmAttrs.gradClassName;
+     this.favInstructor = pmAttrs.favInstructor;
+   }
+     standUp(channel){
+       return `${this.name} announces to ${channel} , @channel standy times!`
+     }
+     debugsCode(student, subject){
+       return `${this.name} debugs ${student.name}'s on ${subject}`
+     }
  }
+
+ 
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
