@@ -151,7 +151,7 @@ class Airplane {
   }
   
   const marty = new Lambdasian ({
-    name: 'Marty',
+    name: 'Marty McFly',
     age: 17,
     location: 'Hill Valley'
   });
@@ -172,9 +172,33 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
-
+ class Instructor extends Lambdasian {
+   constructor(instAttrs){
+     super(instAttrs);
+     this.specialty = instAttrs.specialty;
+     this.favLanguage = instAttrs.favLanguage;
+     this.catchPhrase = instAttrs.catchPhrase;
+   }
+   demo(subject){
+     return `Today we are learning ${subject}` 
+   }
+   grade(student, subject){
+     return `${student.name} receives a perfect score on ${subject}`
+   }
  }
+
+ const doc = new Instructor ({
+   name: 'Doc Brown',
+   age: 50,
+   location: `Twin Pines Mall`,
+   specialty: `time travel`,
+   favLanguage: `C++`,
+   catchPhrase: `Great Scott!`
+ })
+
+ console.log('task 4:', doc);
+ console.log('task 4:', doc.grade(marty,'time travel' ));
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -190,9 +214,25 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian {
+   constructor(studAttrs){
+     super(studAttrs);
+     this.previousBackground = studAttrs.previousBackground;
+     this.className = studAttrs.className;
+     this.favSubjects = studAttrs.favSubjects;
+   }
+   listSubjects(){
+     return `Loving ${this.favSubjects.join()}`
+   }
+   PRAssignment(subject){
+     return `${this.name} has submitted a PR for ${subject}`
+   }
+   sprintChallenge(subject){
+     return `${this.name} has begun sprint challenge on ${subject}`
+   }
  }
+
+
   
   /*
     TASK 6
