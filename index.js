@@ -125,7 +125,7 @@ class Airplane {
   console.log('task 2:', delorean);
   delorean.fill(7);
   console.log('task 2:', delorean.tank);
-  
+  console.log(delorean.drive(777));
   
   /*
     TASK 3
@@ -140,9 +140,24 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
+   constructor(attributes){
+     this.name = attributes.name;
+     this.age = attributes.age;
+     this.location = attributes.location;
+   }
+    speak(){
+      return `Hello my name is ${this.name}, I am from ${this.location}.`;
+    }
   }
   
+  const marty = new Lambdasian ({
+    name: 'Marty',
+    age: 17,
+    location: 'Hill Valley'
+  });
+
+  console.log('task 3:', marty)
+  console.log('task 3:', marty.speak());
   /*
     TASK 4
       - Write an Instructor class extending Lambdasian.
