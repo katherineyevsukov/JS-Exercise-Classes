@@ -185,6 +185,14 @@ class Airplane {
    grade(student, subject){
      return `${student.name} receives a perfect score on ${subject}`
    }
+   gradeStudent(student){
+     let points = Math.random()
+     if(points < 0.5){
+       return student.grade += (points * 10) ;
+   }else{
+     return student.grade -= (points * 10);
+   }
+   }
  }
 
  const doc = new Instructor ({
@@ -220,6 +228,7 @@ class Airplane {
      this.previousBackground = studAttrs.previousBackground;
      this.className = studAttrs.className;
      this.favSubjects = studAttrs.favSubjects;
+     this.grade = 75
    }
    listSubjects(){
      return `Loving ${this.favSubjects.join(', ')}!`
@@ -229,6 +238,13 @@ class Airplane {
    }
    sprintChallenge(subject){
      return `${this.name} has begun sprint challenge on ${subject}`
+   }
+   canGraduate(){
+     if(this.grade > 70){
+       return true;
+     }else{
+       return false;
+     }
    }
  }
 
@@ -242,6 +258,7 @@ class Airplane {
  });
 
 console.log('task 5:', spongebob.listSubjects());
+console.log ('task 5:', spongebob.grade);
   
   /*
     TASK 6
@@ -270,7 +287,7 @@ console.log('task 5:', spongebob.listSubjects());
      }
  }
 
- 
+
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -280,6 +297,8 @@ console.log('task 5:', spongebob.listSubjects());
         + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
   */
 
+        console.log('stretch:', doc.gradeStudent(spongebob))
+        console.log('stretch:', spongebob.canGraduate())
 
   //End of Challenge
   /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
